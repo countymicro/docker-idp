@@ -1,3 +1,11 @@
+Fork of https://github.com/kristophjunge/docker-test-saml-idp.
+
+Changes:
+- Updated to SimpleSAMLphp 1.19.0
+- Cleaned up Dockerfile
+- Use email as NameID in IdP response
+
+
 # Docker Test SAML 2.0 Identity Provider (IdP)
 
 [![DockerHub Pulls](https://img.shields.io/docker/pulls/kristophjunge/test-saml-idp.svg)](https://hub.docker.com/r/kristophjunge/test-saml-idp/) [![DockerHub Stars](https://img.shields.io/docker/stars/kristophjunge/test-saml-idp.svg)](https://hub.docker.com/r/kristophjunge/test-saml-idp/) [![GitHub Stars](https://img.shields.io/github/stars/kristophjunge/docker-test-saml-idp.svg?label=github%20stars)](https://github.com/kristophjunge/docker-test-saml-idp) [![GitHub Forks](https://img.shields.io/github/forks/kristophjunge/docker-test-saml-idp.svg?label=github%20forks)](https://github.com/kristophjunge/docker-test-saml-idp) [![GitHub License](https://img.shields.io/github/license/kristophjunge/docker-test-saml-idp.svg)](https://github.com/kristophjunge/docker-test-saml-idp)
@@ -11,15 +19,6 @@ Built with [SimpleSAMLphp](https://simplesamlphp.org). Based on official PHP7 Ap
 **Warning!**: Do not use this container in production! The container is not configured for security and contains static user credentials and SSL keys.
 
 SimpleSAMLphp is logging to stdout on debug log level. Apache is logging error and access log to stdout.
-
-The contained version of SimpleSAMLphp is 1.15.2.
-
-
-## Supported Tags
-
-- `1.15` [(Dockerfile)](https://github.com/kristophjunge/docker-test-saml-idp/blob/1.15/Dockerfile)
-- `1.14` [(Dockerfile)](https://github.com/kristophjunge/docker-test-saml-idp/blob/1.14/Dockerfile)
-
 
 ## Changelog
 
