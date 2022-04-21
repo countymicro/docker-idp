@@ -1,5 +1,5 @@
 FROM php:7-apache
-MAINTAINER Fleet Developers <engineering@fleetdm.com>
+MAINTAINER Mark Lipscombe <mark@lipscombe.com>
 
 # SimpleSAMLphp
 ARG SIMPLESAMLPHP_VERSION=1.19.0
