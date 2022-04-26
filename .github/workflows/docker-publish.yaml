@@ -1,0 +1,34 @@
+name: Docker Publish
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    # Only run it when the push is to the countymicro/docker-test-saml-idp repo. Otherwise the secrets for pushing to
+    # Docker will not be available.
+    if: github.repository_owner == 'countymicro'
+    runs-on: ubuntu-latest
+    environment: Docker Hub
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.17.8
+
+      - name: Install Dependencies
+        run: make deps
+
+      - name: Tag image with branch name
+        run: docker tag ghcr.io/countymicro/docker-idp:$(git rev-parse --short HEAD) ghcr.io/countymicro/docker-idp:$(git rev-parse --abbrev-ref HEAD)
+
+      - name: Publish Docker images
+        run: docker push ghcr.io/countymicro/docker-idp --all-tags
