@@ -2,7 +2,7 @@ FROM php:7-apache
 MAINTAINER Mark Lipscombe <mark@lipscombe.com>
 
 # SimpleSAMLphp
-ARG SIMPLESAMLPHP_VERSION=1.19.0
+ARG SIMPLESAMLPHP_VERSION=1.19.5
 RUN curl -s -L -o /tmp/simplesamlphp.tar.gz https://github.com/simplesamlphp/simplesamlphp/releases/download/v$SIMPLESAMLPHP_VERSION/simplesamlphp-$SIMPLESAMLPHP_VERSION.tar.gz && \
     tar xzf /tmp/simplesamlphp.tar.gz -C /tmp && \
     mv /tmp/simplesamlphp-* /var/www/simplesamlphp && \
