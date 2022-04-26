@@ -19,14 +19,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Set up Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.17.8
-
-      - name: Install Dependencies
-        run: make deps
-
       - name: Tag image with branch name
         run: docker tag ghcr.io/countymicro/docker-idp:$(git rev-parse --short HEAD) ghcr.io/countymicro/docker-idp:$(git rev-parse --abbrev-ref HEAD)
 
