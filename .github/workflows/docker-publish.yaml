@@ -19,8 +19,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Tag image with branch name
-        run: docker tag ghcr.io/countymicro/docker-idp:$(git rev-parse --short HEAD) ghcr.io/countymicro/docker-idp:$(git rev-parse --abbrev-ref HEAD)
-
-      - name: Publish Docker images
-        run: docker push ghcr.io/countymicro/docker-idp --all-tags
+      - name: Build Docker Image
+        uses: docker/build-push-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          repository: countymicro/docker-idp
+          tags: latest
